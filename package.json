@@ -1,0 +1,11 @@
+{
+  "name": "emo-react-mobx",
+  "version": "0.0.0",
+  "description": "emo implemented by react with mobx",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jigsaw (http://jgs.me)",
+  "license": "MIT"
+}
