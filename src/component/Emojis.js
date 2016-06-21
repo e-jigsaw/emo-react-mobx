@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react'
+import {observer} from 'mobx-react'
 
-export default class Emojis extends Component {
+@observer export default class Emojis extends Component {
   static contextTypes = {
     emoStore: PropTypes.object
   }
