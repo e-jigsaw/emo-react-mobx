@@ -1,11 +1,35 @@
 {
   "name": "emo-react-mobx",
-  "version": "0.0.0",
+  "private": true,
   "description": "emo implemented by react with mobx",
   "main": "index.js",
+  "config": {
+    "DEST": "build",
+    "PORT": "3000"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:before": "mkdir -p build",
+    "build:bundle": "browserify -t [ babelify --plugins [ transform-pug-to-react transform-flow-strip-types transform-decorators-legacy ] --presets [ es2015 stage-1 ] ] -o $npm_package_config_DEST/index.js src/index.js",
+    "build:pug": "pug -o build src",
+    "serve": "static -p $npm_package_config_PORT $npm_package_config_DEST"
   },
   "author": "jigsaw (http://jgs.me)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-flow-strip-types": "^6.8.0",
+    "babel-plugin-transform-pug-to-react": "^0.2.0",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-1": "^6.5.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.0.1",
+    "es6-promise": "^3.2.1",
+    "isomorphic-fetch": "^2.2.1",
+    "mobx": "^2.3.2",
+    "mobx-react": "^3.3.1",
+    "pug-cli": "^1.0.0-alpha6",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0"
+  }
 }
