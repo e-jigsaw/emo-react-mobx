@@ -3,7 +3,7 @@ import {observer} from 'mobx-react'
 
 @observer export default class Emojis extends Component {
   static contextTypes = {
-    emoStore: PropTypes.object
+    stores: PropTypes.object
   }
 
   onClick (emoji) {
@@ -13,10 +13,11 @@ import {observer} from 'mobx-react'
   }
 
   render () {
+    const {emoStore} = this.context.stores
     const normalizeName = (name) => {
       return name.replace(/\+/, '')
     }
-    const generateEmojis = this.context.emoStore.emojis.map((emoji, i) => {
+    const generateEmojis = emoStore.emojis.map((emoji, i) => {
       return pug`
         span(
           key='{i}',

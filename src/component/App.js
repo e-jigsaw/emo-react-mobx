@@ -5,12 +5,12 @@ import Emojis from './Emojis.js'
 
 @observer export default class App extends Component {
   static childContextTypes = {
-    emoStore: PropTypes.object
+    stores: PropTypes.object
   }
 
   getChildContext () {
     return {
-      emoStore: this.props.emoStore
+      stores: {...this.props}
     }
   }
 
