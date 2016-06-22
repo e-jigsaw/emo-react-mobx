@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import {toJS} from 'mobx'
 import {observer} from 'mobx-react'
+import Finder from './Finder.js'
 import Emojis from './Emojis.js'
 
 @observer export default class App extends Component {
@@ -23,6 +24,7 @@ import Emojis from './Emojis.js'
   render () {
     return pug`
       div
+        Finder
         Emojis
     `
   }

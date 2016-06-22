@@ -2,6 +2,7 @@ import {observable, toJS} from 'mobx'
 
 export default class EmoStore {
   @observable emojis = []
+  @observable searchWord = ''
 
   setEmojis (emojis) {
     this.emojis = emojis.map((emoji) => {
@@ -12,5 +13,9 @@ export default class EmoStore {
         keywords: emoji.keywords.slice(0, -1)
       }
     })
+  }
+
+  setSearchWord (value) {
+    this.searchWord = value
   }
 }
