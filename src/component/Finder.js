@@ -1,6 +1,5 @@
 import React, {Component, PropTypes} from 'react'
 import {observer} from 'mobx-react'
-import {findDOMNode} from 'react-dom'
 
 @observer export default class Finder extends Component {
   static contextTypes = {

@@ -3,6 +3,7 @@ import {observable, computed} from 'mobx'
 export default class EmoStore {
   @observable emojis = []
   @observable searchWord = ''
+  @observable currentEmoji = null
 
   @computed get filteredEmojis () {
     const r = new RegExp(
@@ -24,5 +25,9 @@ export default class EmoStore {
 
   setSearchWord (value) {
     this.searchWord = value
+  }
+
+  setCurrentEmoji (emoji) {
+    this.currentEmoji = emoji
   }
 }

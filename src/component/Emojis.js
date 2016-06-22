@@ -8,7 +8,8 @@ import {observer} from 'mobx-react'
 
   onClick (emoji) {
     return (event) => {
-      console.log(emoji)
+      const {emoStore} = this.context.stores
+      emoStore.setCurrentEmoji(emoji)
     }
   }
 
