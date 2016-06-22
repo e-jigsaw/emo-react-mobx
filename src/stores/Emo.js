@@ -1,8 +1,15 @@
-import {observable, toJS} from 'mobx'
+import {observable, computed} from 'mobx'
 
 export default class EmoStore {
   @observable emojis = []
   @observable searchWord = ''
+
+  @computed get filteredEmojis () {
+    const r = new RegExp(
+      this.searchWord.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&')
+    )
+    return this.emojis.filter(emoji => emoji.forSearch.search(r) !== -1)
+  }
 
   setEmojis (emojis) {
     this.emojis = emojis.map((emoji) => {
